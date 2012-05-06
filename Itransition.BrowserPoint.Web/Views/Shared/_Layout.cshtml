@@ -1,0 +1,17 @@
+﻿@{
+    Bundles.Reference("scripts/jquery/jquery.js");
+    Bundles.Reference("content/bootstrap.css");
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    @Bundles.RenderStylesheets()
+</head>
+<body>
+    @RenderBody()
+    @Bundles.RenderHtmlTemplates()
+    @Bundles.RenderScripts()
+</body>
+</html>
