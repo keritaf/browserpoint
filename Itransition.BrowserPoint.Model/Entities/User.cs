@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using DataAnnotationsExtensions;
 
     /// <summary>
     /// Service user entity.
@@ -23,6 +24,7 @@
         /// Account confirmation link is sent to this address too.
         /// </summary>
         [Required]
+        [Email]
         public String Email { get; set; }
 
         /// <summary>
