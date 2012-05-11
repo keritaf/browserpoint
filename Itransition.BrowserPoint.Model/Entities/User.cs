@@ -79,5 +79,17 @@
         /// User roles.
         /// </summary>
         public virtual ICollection<Role> Roles { get; set; }
+
+        /// <summary>
+        /// Presentations, created by user.
+        /// </summary>
+        [InverseProperty("Owner")]
+        public virtual ICollection<Presentation> OwnPresentations { get; set; }
+
+        /// <summary>
+        /// Presentations, followed by user.
+        /// </summary>
+        [InverseProperty("Followers")]
+        public virtual ICollection<Presentation> FollowedPresentations { get; set; }
     }
 }

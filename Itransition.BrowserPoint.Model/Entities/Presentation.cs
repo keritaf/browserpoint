@@ -1,6 +1,7 @@
 ﻿namespace Itransition.BrowserPoint.Model.Entities
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     /// <summary>
@@ -26,6 +27,11 @@
         /// Presentation owner.
         /// This user has full control over presentation attributes and content.
         /// </summary>
-        public User Owner { get; set; }
+        public virtual User Owner { get; set; }
+
+        /// <summary>
+        /// Users, who follow this presentation.
+        /// </summary>
+        public virtual ICollection<User> Followers { get; set; }
     }
 }
