@@ -3,6 +3,8 @@ using Cassette.Stylesheets;
 
 namespace Itransition.BrowserPoint.Web
 {
+    using Cassette.Scripts;
+
     /// <summary>
     /// Configures the Cassette asset modules for the web application.
     /// </summary>
@@ -10,13 +12,7 @@ namespace Itransition.BrowserPoint.Web
     {
         public void Configure(BundleCollection bundles, CassetteSettings settings)
         {
-            bundles.AddUrlWithLocalAssets(@"//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js",
-                new LocalAssetSettings
-                    {
-                        Path = "scripts/jquery/jquery.js",
-                        FallbackCondition = "!window.jQuery"
-                    });
-
+            bundles.AddPerIndividualFile<ScriptBundle>(@"Scripts");
             bundles.AddPerIndividualFile<StylesheetBundle>(@"Content");
         }
     }
