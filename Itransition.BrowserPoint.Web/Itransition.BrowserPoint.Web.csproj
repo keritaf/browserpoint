@@ -137,9 +137,9 @@
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\fabric\fabric.js" />
-    <Content Include="Scripts\jquery\jquery.js" />
+    <Content Include="Scripts\3rdparty\bootstrap.js" />
+    <Content Include="Scripts\3rdparty\fabric\fabric.js" />
+    <Content Include="Scripts\3rdparty\jquery\jquery.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
