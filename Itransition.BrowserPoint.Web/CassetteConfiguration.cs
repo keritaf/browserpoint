@@ -1,19 +1,19 @@
-using Cassette.Configuration;
+using Cassette;
+using Cassette.Scripts;
 using Cassette.Stylesheets;
 
 namespace Itransition.BrowserPoint.Web
 {
-    using Cassette.Scripts;
-
     /// <summary>
-    /// Configures the Cassette asset modules for the web application.
+    /// Configures the Cassette asset bundles for the web application.
     /// </summary>
-    public class CassetteConfiguration : ICassetteConfiguration
+    public class CassetteBundleConfiguration : IConfiguration<BundleCollection>
     {
-        public void Configure(BundleCollection bundles, CassetteSettings settings)
+        // Please read http://getcassette.net/documentation/configuration
+        public void Configure(BundleCollection bundles)
         {
-            bundles.AddPerIndividualFile<ScriptBundle>(@"Scripts");
-            bundles.AddPerIndividualFile<StylesheetBundle>(@"Content");
+            bundles.AddPerIndividualFile<StylesheetBundle>("Content");
+            bundles.AddPerIndividualFile<ScriptBundle>("Scripts");
         }
     }
 }
