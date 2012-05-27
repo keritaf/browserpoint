@@ -1,3 +1,6 @@
+/// <reference path="jquery.js"/>
+/// <reference path="jqueryui.js"/>
+
 /* ============================================================
  * bootstrap-dropdown.js v2.0.3
  * http://twitter.github.com/bootstrap/javascript.html#dropdowns

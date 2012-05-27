@@ -1,0 +1,36 @@
+﻿@{ 
+    Bundles.Reference("/scripts/bootstrap.js");
+}
+<span class="pull-right">
+    @if (User.Identity.IsAuthenticated)
+    {
+        
+        <div class="btn-group">
+            <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                @User.Identity.Name <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li>@Html.ActionLink("Profile", "Index", "Account")</li>
+                @if (Roles.IsUserInRole(User.Identity.Name, "admin"))
+                {
+                    <li>@Html.ActionLink("Administration", "Index", "Admin")</li>
+                }
+                <li class="divider"></li>
+                <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
+            </ul>
+        </div>
+
+    }
+    else
+    {
+        <div class="btn-group">
+            <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                User <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li>@Html.ActionLink("Register", "Register", "Account")</li>
+                <li>@Html.ActionLink("Login", "Login", "Account")</li>
+            </ul>
+        </div>
+    }
+</span>
