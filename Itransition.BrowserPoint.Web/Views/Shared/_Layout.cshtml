@@ -1,7 +1,10 @@
 ﻿@{
-    Bundles.Reference("scripts/3rdparty/jquery/jquery.js");
-    Bundles.Reference("scripts/3rdparty/fabric/fabric.js");
-    Bundles.Reference("content/bootstrap.css");
+    Bundles.Reference("content/less/bootstrap.less");
+    Bundles.Reference("content/custom/base.scss");
+
+    Bundles.Reference("scripts/bootstrap.js");
+    Bundles.Reference("scripts/bootstrap-button.js");
+    Bundles.Reference("scripts/bootstrap-dropdown.js");
 }
 <!DOCTYPE html>
 <html>
@@ -12,8 +15,21 @@
     @Bundles.RenderStylesheets()
 </head>
 <body>
-    @RenderBody()
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <a class="brand pull-left" href="#">BrowserPoint</a>
+                @RenderSection("HeaderContent", false)
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        @RenderBody()
+    </div>
     @Bundles.RenderHtmlTemplates()
     @Bundles.RenderScripts()
+    <!--[if lt IE 9]>
+            <script src="https://raw.github.com/aFarkas/html5shiv/master/dist/html5shiv.js"></script>
+        <![endif]-->
 </body>
 </html>

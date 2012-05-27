@@ -1,0 +1,87 @@
+@import 'colors';
+@import 'elements';
+
+$slides-previews-width: 200px;
+
+#slides-editor-header {
+    form {
+        margin-bottom: 20px;
+    }
+}
+
+#slides-editor-window {
+    width: 100%;
+    overflow: hidden;
+    #slides-editor-previews {
+        @include accent-borders;
+        background-color: $lightGray;
+        float: left;
+        height: 100%;
+        width: $slides-previews-width;
+        box-sizing: border-box;
+        overflow-y: scroll;
+
+        .slide-preview-container {
+            position: relative;
+            padding: 15px 15px 0 15px;
+            .slide-preview-number {
+                position: absolute;
+                top:15px;
+                left:15px;
+                padding: 2px 4px;
+                background-color: $lightGray;
+            }
+            .slide-preview {
+                background-color: #FFF;
+                overflow: hidden;
+                box-sizing: border-box;
+                border: 2px solid $lightGray;
+                border-radius: 2px;
+                box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+                &:hover {
+                    border-color: $darkGray;
+                    & + .slide-preview-number {
+                        background-color: $darkGray;
+                        color: white;
+                    }
+                }
+                &.selected {
+                    border-color: $accentColor !important;
+                    & + .slide-preview-number {
+                        background-color: $accentColor;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+    #slides-editor-workspace {
+        @include accent-borders;
+        background-color: $lightGray;
+        margin-left: $slides-previews-width + 20px;
+        height: 100%;
+        position: relative;
+
+        #workspace-slide {
+            position: absolute;
+            width: 640px;
+            height: 480px;
+            margin-left: 50%;
+            margin-top: 50%;
+            left: -320px;
+            top: -240px;
+
+            background-color: #ffffff;
+            box-shadow: 0 0 10px 0 $darkGray;
+        }
+    }
+}
+
+.test1 {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top:100px;
+    left:100px;
+    background-color: $accentColor;
+}

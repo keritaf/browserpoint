@@ -1,8 +1,55 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+    Bundles.Reference("/Scripts/custom/presentation-model.js");
+    Bundles.Reference("/Scripts/custom/editor-ui.js");
+    
+    Bundles.Reference("/Content/custom/editor-ui.scss");
+}
+@section HeaderContent
+{
+    <button class="btn pull-left" href="#">
+        <i class="icon-arrow-left"></i>Back</button>
+    <button class="btn btn-primary pull-left" href="#">
+        <i class="icon-hdd icon-white"></i>Save</button>
+    <button class="btn btn-primary pull-left" href="#">
+        <i class="icon-pencil icon-white"></i>Text</button>
+    <button class="btn btn-primary pull-left" href="#">
+        <i class="icon-picture icon-white"></i>Image</button>
+    <button class="btn btn-primary pull-left" href="#">
+        <i class="icon-eye-open icon-white"></i>Theme</button>
 }
 
-<h2>@ViewBag.Message</h2>
-<p>
-    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
-</p>
+<div id="slides-editor-header" class="row-fluid">
+    <form class="form-inline">
+    <input id="presentationName" class="span4" data-bind="value: title, valueUpdate: 'afterkeydown'"
+        placeholder="Presentation name" />
+    </form>
+</div>
+<div id="slides-editor-window" class="row-fluid">
+    <div id="slides-editor-previews">
+        <div class="slide-preview-container">
+            <div class="slide-preview">
+            </div>
+            <div class="slide-preview-number">
+                1</div>
+        </div>
+        <div class="slide-preview-container">
+            <div class="slide-preview">
+            </div>
+            <div class="slide-preview-number">
+                2</div>
+        </div>
+        <div class="slide-preview-container">
+            <div class="slide-preview">
+            </div>
+            <div class="slide-preview-number">
+                3</div>
+        </div>
+    </div>
+    <div id="slides-editor-workspace">
+        <div id="workspace-slide">
+            <div data-element-draggable class="test1">
+            </div>
+        </div>
+    </div>
+</div>

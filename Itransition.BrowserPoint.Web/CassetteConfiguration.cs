@@ -12,7 +12,8 @@ namespace Itransition.BrowserPoint.Web
         // Please read http://getcassette.net/documentation/configuration
         public void Configure(BundleCollection bundles)
         {
-            bundles.AddPerIndividualFile<StylesheetBundle>("Content");
+            bundles.Add<StylesheetBundle>("Content/less");
+            bundles.AddPerIndividualFile<StylesheetBundle>("Content/custom");
             bundles.AddPerIndividualFile<ScriptBundle>("Scripts");
         }
     }
