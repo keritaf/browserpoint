@@ -72,3 +72,16 @@ function PresentationModel(options) {
     };
     
 }
+
+var presentation = new PresentationModel({
+    id: 12345,
+    title: 'My presentation',
+    authorId: 543,
+    tags: ['slides', 'kawaii', 'work staff']
+});
+
+presentation.slides().push(new PresentationSlide({}));
+presentation.slides().push(new PresentationSlide({}));
+presentation.slides().push(new PresentationSlide({}));
+
+ko.applyBindings(presentation);
