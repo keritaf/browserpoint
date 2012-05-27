@@ -1,3 +1,5 @@
+/// <reference path="jquery.js"/>
+/// <reference path="jqueryui.js"/>
 /* ===================================================
  * bootstrap-transition.js v2.0.3
  * http://twitter.github.com/bootstrap/javascript.html#transitions

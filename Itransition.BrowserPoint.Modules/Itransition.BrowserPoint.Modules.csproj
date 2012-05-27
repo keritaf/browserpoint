@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Authentication\AccountValidator.cs" />
     <Compile Include="Authentication\CustomMembershipProvider.cs" />
+    <Compile Include="Authentication\CustomRoleProvider.cs" />
     <Compile Include="Extensions\StringHashExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -12,13 +12,19 @@
     {
         private readonly ModelContext context = new ModelContext();
 
-        public ActionResult LogOn()
+        [Authorize]
+        public ActionResult Index()
+        {
+            return View();
+        }
+        
+        public ActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult LogOn(LogOnModel model, string returnUrl)
+        public ActionResult Login(LogOnModel model, string returnUrl)
         {
             if (ModelState.IsValid)
             {
@@ -53,7 +59,7 @@
             return View(model);
         }
 
-        public ActionResult LogOff()
+        public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
 
