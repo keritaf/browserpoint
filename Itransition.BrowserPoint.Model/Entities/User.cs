@@ -83,7 +83,7 @@
         /// <summary>
         /// Presentations, created by user.
         /// </summary>
-        [InverseProperty("Owner")]
+        [InverseProperty("Author")]
         public virtual ICollection<Presentation> OwnPresentations { get; set; }
 
         /// <summary>
