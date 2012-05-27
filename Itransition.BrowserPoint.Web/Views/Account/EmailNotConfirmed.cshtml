@@ -1,0 +1,14 @@
+﻿@model Itransition.BrowserPoint.Model.Entities.User
+<div class="row">
+    <div class="span12">
+        <h2>
+            You have not confirmed your account yet.
+        </h2>
+        <p>
+            We have sent you an email to address <i>@Model.Email</i>,
+            but you have not followed the link in it.
+            We can @Html.ActionLink("resend", "GenerateConfirmationEmail", "Account", new { email = Model.Email }, null)
+            confirmation email if you have not received it.
+        </p>
+    </div>
+</div>

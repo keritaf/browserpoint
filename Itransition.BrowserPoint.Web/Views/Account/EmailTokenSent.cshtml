@@ -1,0 +1,19 @@
+﻿@model string
+@{
+    ViewBag.Title = "Confirmation email sent";
+}
+<div class="row">
+    <div class="span12">
+        <h2>
+            Confirmation email sent to @Model</h2>
+        <p>
+            We've sent a message on your email, containing a link. In order to use your accout
+            you need to follow this link.
+        </p>
+        <p>
+            @Html.ActionLink("Go to main page", "Index", "Home", null, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Enter confirmation code", "ConfirmEmail", "Account", null, new { @class = "btn" })
+            @Html.ActionLink("Resend email", "GenerateConfirmationEmail", new { email = Model }, new { @class = "btn" })
+        </p>
+    </div>
+</div>

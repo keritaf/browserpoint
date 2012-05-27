@@ -1,0 +1,12 @@
+﻿@model Itransition.BrowserPoint.Web.Models.AccountConfirmationEmail
+Content-Type: text/plain
+
+Somebody has created a user on WebReg using this email.
+If it was you, follow the link below or follow to the specified page and enter code.
+Otherwise just ignore this message.
+
+@Url.Action("ConfirmEmail", "Account", new { token = Model.Token }, Request.Url.Scheme)
+<a href="@Url.Action("ConfirmEmail", "Account", new { token = Model.Token }, Request.Url.Scheme)" target="_blank">
+    Confirmation link</a> Code: @Model.Token
+
+Page: @Url.Action("ConfirmEmail", "Account", null, Request.Url.Scheme)

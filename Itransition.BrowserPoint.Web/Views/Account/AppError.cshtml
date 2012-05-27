@@ -1,0 +1,29 @@
+﻿@model Itransition.BrowserPoint.Web.Models.ErrorModel
+
+@{
+    ViewBag.Title = "Error: "+Model.Title;
+}
+
+@if (!String.IsNullOrWhiteSpace(Model.Title))
+{
+    <h2>@Model.Title</h2>
+}
+@if (!String.IsNullOrWhiteSpace(Model.Message))
+{
+    <p>@Model.Message</p>
+}
+@if (!String.IsNullOrWhiteSpace(Model.Details))
+{
+    <p>@Model.Details</p>
+}
+
+<p>
+@if (Model.ShowGotoBack)
+{
+@Html.ActionLink("Go to main page","Index","Home",null,new {@class="btn"})
+}  
+@if (Model.ShowGotoBack)
+{
+    <a href="javascript:history.go(-1)" class="btn">Go back</a>
+}  
+</p>

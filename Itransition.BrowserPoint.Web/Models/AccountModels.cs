@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Globalization;
-using System.Web.Mvc;
-using System.Web.Security;
-
-namespace Itransition.BrowserPoint.Web.Models
+﻿namespace Itransition.BrowserPoint.Web.Models
 {
+    using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
 
+    /// <summary>
+    /// Model for user account password change view
+    /// </summary>
     public class ChangePasswordModel
     {
         [Required]
@@ -27,6 +25,9 @@ namespace Itransition.BrowserPoint.Web.Models
         public string ConfirmPassword { get; set; }
     }
 
+    /// <summary>
+    /// Model for the user login page 
+    /// </summary>
     public class LogOnModel
     {
         [Required]
@@ -53,8 +54,13 @@ namespace Itransition.BrowserPoint.Web.Models
         [Display(Name = "Email address")]
         public string Email { get; set; }
 
+        [Display(Name = "Confirm email")]
+        [DataType(DataType.EmailAddress)]
+        [Compare("Email", ErrorMessage = "Email and email confirmation do not match.")]
+        public string ConfirmEmail { get; set; }
+
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 4)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }

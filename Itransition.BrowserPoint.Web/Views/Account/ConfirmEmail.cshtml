@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Email confirmation";
+}
+<div class="row">
+    <div class="span12">
+        <h2>
+            Account confirmation</h2>
+        <p>
+            Enter account confirmation code, which we sent you in an email message, to the field
+            below.
+        </p>
+        @using (Html.BeginForm("ConfirmEmail", "Account", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            <fieldset>
+                <div class="control-group">
+                    <label class="control-label">
+                        Confirmation code
+                    </label>
+                    <div class="controls">
+                        @Html.TextBox("token", null, new { @placeholder = "code here" })
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <input type="submit" value="Confirm account" class="btn btn-primary" />
+                </div>
+            </fieldset>
+        }
+    </div>
+</div>
