@@ -30,26 +30,26 @@
         <div class="slide-preview-container">
             <div class="slide-preview">
             </div>
-            <div class="slide-preview-number">
-                1</div>
+            <div class="slide-preview-number">1</div>
         </div>
         <div class="slide-preview-container">
             <div class="slide-preview">
             </div>
-            <div class="slide-preview-number">
-                2</div>
+            <div class="slide-preview-number">2</div>
         </div>
         <div class="slide-preview-container">
             <div class="slide-preview">
             </div>
-            <div class="slide-preview-number">
-                3</div>
+            <div class="slide-preview-number">3</div>
         </div>
     </div>
+    
     <div id="slides-editor-workspace">
-        <div id="workspace-slide">
-            <div data-element-draggable class="test1">
+        <div id="workspace-slide" data-bind="foreach: currentSlide().texts() ">
+        <!-- ko with: block -->
+            <div data-element-draggable="true" data-bind="style: { top: top() +'px', left: left() +'px', width: width() +'px', height: height() +'px' }">
             </div>
+        <!-- /ko -->
         </div>
     </div>
 </div>

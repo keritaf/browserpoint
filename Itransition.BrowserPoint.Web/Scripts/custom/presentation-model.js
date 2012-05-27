@@ -1,77 +1,74 @@
 /// <reference path="/Scripts/knockout.js"/>
 
-function BlockParameters() {
+function BlockParameters(options) {
     var self = this;
-    self.top = ko.observable(0);
-    self.left = ko.observable(0);
-    self.width = ko.observable(0);
-    self.height = ko.observable(0);
-    self.rotation = ko.observable(0);
-    self.scaleX = ko.observable(1);
-    self.scaleY = ko.observable(1);
-    self.zindex = ko.observable(0);
+    self.top = ko.observable(options.top);
+    self.left = ko.observable(options.left);
+    self.width = ko.observable(options.width);
+    self.height = ko.observable(options.height);
+    self.rotation = ko.observable(options.rotation);
+    self.scaleX = ko.observable(options.scaleX || 1);
+    self.scaleY = ko.observable(options.scaleY || 1);
+    self.zindex = ko.observable(options.zindex);
 }
 
-function TextObject() {
+function TextObject(options) {
     var self = this;
-    self.text = ko.observable('');
-    self.type = ko.observable('');
-    self.blockParams = ko.observable(new BlockParameters());
+
+    var text = options.text || "Some text...";
+    var block = new BlockParameters(options.block); 
+    
+    self.text = ko.observable(text);
+    self.block = ko.observable(block);
 }
 
-function ImageObject() {
+function ImageObject(options) {
     var self = this;
-    self.url = ko.observable('');
-    self.blockParams = ko.observable(new BlockParameters());
+    self.url = ko.observable(options.url);
+    self.blockParams = ko.observable(options.blockParameters);
 }
 
-function PresentationSlideTheme() {
+function PresentationSlide(options) {
     var self = this;
-    self.type = ko.observable('');
-    self.typeName = ko.observable('Default');
-    self.staticTexts = ko.observable([]);
-    self.staticImages = ko.observable([]);
+
+    var texts = options.texts || [];
+    var images = options.images || [];
+    
+    self.texts = ko.observableArray(texts);
+    self.images = ko.observableArray(images);
 }
 
-function PresentationSlide() {
-    var self = this;
-    self.type = ko.observable('');
-    self.texts = ko.observableArray([]);
-    self.images = ko.observableArray([]);
-}
 
-function PresentationTheme() {
-    var self = this;
-    self.id = 0;
-    self.name = ko.observable('Unnamed theme');
-    self.author = ko.observable('');
-    self.description = ko.observable('');
-    self.sizeX = ko.observable(800);
-    self.sizeY = ko.observable(600);
-    self.aspectRatio = ko.computed(function () {
-        return self.sizeX / self.sizeY;
-    });
-    self.slideThemes = ko.observableArray([]);
-}
-
-function PresentationModel() {
+function PresentationModel(options) {
     var self = this;
 
-    self.id = 0;
-    self.title = ko.observable('My presentation');
-    self.authorId = 0;
-    self.tags = ko.observableArray(['slides', 'kawaii', 'work staff']);
-    self.theme = ko.observable('default');
-    self.themes = [];
+    var authorId = options.authorId;
+    if(authorId==null) return null;
 
-    self.slides = ko.observableArray([]);
+    var id = options.id || 0;
+    var title = options.title || "My presentation";
+    var tags = options.tags || [];
+    var slides = options.slides || [];
+        
+    self.authorId = authorId;
+    self.id = id;
+    self.title = ko.observable(title);
+    self.tags = ko.observableArray(tags);
+
+    self.slides = ko.observableArray(slides);
     self.currentSlideNumber = ko.observable(0);
+    
     self.currentSlide = ko.computed(function () {
-        return self.slides[self.currentSlideNumber];
+        return self.slides()[self.currentSlideNumber()];
     });
+
+    // Operations
+    self.addSlide = function (ops) {
+        self.slides.push(new PresentationSlide(ops));
+    };
+
+    self.changeSlide = function (slideId) {
+        self.currentSlideNumber = slideId;
+    };
+    
 }
-model = new PresentationModel();
-
-ko.applyBindings(model);
-
-

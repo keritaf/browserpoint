@@ -2,44 +2,11 @@
 /// <reference path="/Scripts/jqueryui.js"/>
 
 $(function () {
-    var slideAspectRatio = 4 / 3;
-    var presentation = {
-        id:12345,
-        title:'My presentation',
-        authorId:543,
-        tags:['slides', 'kawaii', 'work staff'],
-        theme:'default',
-        sizeX:800,
-        sizeY:600,
-        slides:[
-            {
-                textObjects:[
-                    {
-                        text:'Loren ipsum dolor sit amet',
-                        type:'slide-text-label',
-                        block:{
-                            top:10,
-                            left:10,
-                            width:300,
-                            height:200,
-                            rotation:45,
-                            scaleX:2,
-                            scaleY:2
-                        }
-                    },
-                    {
-                        text:'test <strong>text test</strong> text',
-                        type:'slide-text-title'
-                    }
-                ]
-            }
-        ]
-    }
 
-    // Window and elements resize handling
+   // Window and elements resize handling
     var resizeSlidePreviews = function () {
         $(".slide-preview").each(function () {
-            $(this).height($(this).width() / slideAspectRatio);
+            $(this).height($(this).width() / 1.33);
         });
     };
     $('#slides-editor-previews').resize(resizeSlidePreviews);
@@ -56,10 +23,35 @@ $(function () {
     $("#slides-editor-previews").on("click", ".slide-preview", function (e) {
         $("#slides-editor-previews .slide-preview").removeClass("selected");
         $(this).addClass("selected");
+        // change slide
     });
 
     $('[data-element-draggable]').draggable({
-        containment: "#slides-editor-workspace"
+        containment: "parent" //"#slides-editor-workspace"
     });
 });
+
+
+var presentation = new PresentationModel({
+    id: 12345,
+    title: 'My presentation',
+    authorId: 543,
+    tags: ['slides', 'kawaii', 'work staff']
+});
+
+var blockParams = {
+    top: 10,
+    left: 10,
+    width: 300,
+    height: 200,
+    rotation: 45,
+    scaleX: 2,
+    scaleY: 2
+};
+
+var text1 = new TextObject({ text: 'Loren ipsum dolor sit amet', block: blockParams });
+presentation.addSlide({ texts: [text1] });
+
+ko.applyBindings(presentation);
+
 
