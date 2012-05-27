@@ -1,5 +1,6 @@
 ﻿namespace Itransition.BrowserPoint.Model.Entities
 {
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     public class Tag
@@ -10,6 +11,6 @@
         [Key]
         public virtual string Title { get; set; }
 
-        public virtual Presentation Presentation { get; set; }        
+        public virtual ICollection<Presentation> Presentations { get; set; }        
     }
 }

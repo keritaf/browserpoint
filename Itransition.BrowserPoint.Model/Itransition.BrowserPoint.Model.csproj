@@ -50,9 +50,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\BlockInfo.cs" />
+    <Compile Include="Entities\Image.cs" />
     <Compile Include="Entities\Presentation.cs" />
     <Compile Include="Entities\PresentationTheme.cs" />
+    <Compile Include="Entities\PresentationThemeSlide.cs" />
     <Compile Include="Entities\Role.cs" />
+    <Compile Include="Entities\Slide.cs" />
+    <Compile Include="Entities\SlideImage.cs" />
+    <Compile Include="Entities\SlideText.cs" />
     <Compile Include="Entities\Tag.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Migrations\Configuration.cs" />

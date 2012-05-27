@@ -9,13 +9,10 @@
     /// </summary>
     public class Role
     {
-        [Key]
-        public int Id { get; set; }
-
         /// <summary>
         /// Role name.
         /// </summary>
-        [Required]
+        [Key]
         public String Name { get; set; }
 
         /// <summary>

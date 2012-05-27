@@ -12,6 +12,8 @@
 
         public virtual string ThemeFolder { get; set; }
 
+        public virtual ICollection<PresentationThemeSlide> PresentationThemeSlides { get; set; }
+
         public virtual ICollection<Presentation> Presentations { get; set; }
     }
 }

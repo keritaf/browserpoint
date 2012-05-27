@@ -30,13 +30,24 @@
         public virtual User Author { get; set; }
 
         /// <summary>
+        /// Indicates whether this presentation is public.
+        /// </summary>
+        public bool IsPublic { get; set; }
+
+        /// <summary>
         /// Users, who follow this presentation.
         /// </summary>
         public virtual ICollection<User> Followers { get; set; }
 
-        [InverseProperty("Presentation")]
+        /// <summary>
+        /// Presentation tags.
+        /// </summary>
+        [InverseProperty("Presentations")]
         public virtual ICollection<Tag> Tags { get; set; }
 
+        /// <summary>
+        /// Presentation theme.
+        /// </summary>
         [InverseProperty("Presentations")]
         public virtual PresentationTheme Theme { get; set; }
     }
