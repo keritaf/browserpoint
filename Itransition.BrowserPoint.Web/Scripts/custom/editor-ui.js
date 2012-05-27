@@ -44,9 +44,7 @@ var blockParams = {
     left: 10,
     width: 300,
     height: 200,
-    rotation: 45,
-    scaleX: 2,
-    scaleY: 2
+    rotation: 45
 };
 
 var text1 = new TextObject({ text: 'Loren ipsum dolor sit amet', block: blockParams });

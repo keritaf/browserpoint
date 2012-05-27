@@ -1,5 +1,6 @@
 /// <reference path="/Scripts/knockout.js"/>
 
+
 function BlockParameters(options) {
     var self = this;
     self.top = ko.observable(options.top);
@@ -7,9 +8,41 @@ function BlockParameters(options) {
     self.width = ko.observable(options.width);
     self.height = ko.observable(options.height);
     self.rotation = ko.observable(options.rotation);
-    self.scaleX = ko.observable(options.scaleX || 1);
-    self.scaleY = ko.observable(options.scaleY || 1);
     self.zindex = ko.observable(options.zindex);
+
+    self.scaledTop = function () {
+        return self.top() / presentation.scaled();
+    };
+
+    self.scaledLeft = function () {
+        return self.left() / presentation.scaled();
+    };
+
+    self.scaledWidth = function () {
+        return self.width() / presentation.scaled();
+    };
+
+    self.scaledHeight = function () {
+        return self.height() / presentation.scaled();
+    };
+
+    self.previewTop = function () {
+        return self.top() / presentation.scalePreview();
+    };
+
+    self.previewLeft = function () {
+        return self.left() / presentation.scalePreview();
+    };
+
+    self.previewWidth = function () {
+        return self.width() / presentation.scalePreview();
+    };
+
+    self.previewHeight = function () {
+        return self.height() / presentation.scalePreview();
+    };
+    
+    
 }
 
 function TextObject(options) {
@@ -49,7 +82,10 @@ function PresentationModel(options) {
     var title = options.title || "My presentation";
     var tags = options.tags || [];
     var slides = options.slides || [];
-        
+
+    var scale = ko.observable(1);
+    var scalePreview =  ko.observable(0.2);
+    
     self.authorId = authorId;
     self.id = id;
     self.title = ko.observable(title);
