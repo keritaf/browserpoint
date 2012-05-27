@@ -32,24 +32,3 @@ $(function () {
 });
 
 
-var presentation = new PresentationModel({
-    id: 12345,
-    title: 'My presentation',
-    authorId: 543,
-    tags: ['slides', 'kawaii', 'work staff']
-});
-
-var blockParams = {
-    top: 10,
-    left: 10,
-    width: 300,
-    height: 200,
-    rotation: 45
-};
-
-var text1 = new TextObject({ text: 'Loren ipsum dolor sit amet', block: blockParams });
-presentation.addSlide({ texts: [text1] });
-
-ko.applyBindings(presentation);
-
-
