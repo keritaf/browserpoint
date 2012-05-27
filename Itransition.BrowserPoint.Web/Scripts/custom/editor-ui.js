@@ -26,9 +26,13 @@ $(function () {
         // change slide
     });
 
-    $('[data-element-draggable]').draggable({
-        containment: "parent" //"#slides-editor-workspace"
+    $('.draggable-and-resizible').draggable({
+        containment: "parent" 
+    }).resizable({
+        containment: "parent"
     });
+
+    
 });
 
 

@@ -35,7 +35,7 @@
     <div id="slides-editor-workspace">
         <div id="workspace-slide" data-bind="foreach: currentSlide().texts() ">
         <!-- ko with: block -->
-            <div data-element-draggable="true" data-bind="style: { top: top() +'px', left: left() +'px', width: width() +'px', height: height() +'px' }">
+            <div class="text draggable-and-resizible" data-bind="style: { top: top() +'px', left: left() +'px', width: width() +'px', height: height() +'px' }">
             </div>
         <!-- /ko -->
         </div>

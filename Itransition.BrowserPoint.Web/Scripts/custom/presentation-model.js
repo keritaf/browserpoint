@@ -100,6 +100,7 @@ function PresentationModel(options) {
 
     // Operations
     self.addSlide = function (ops) {
+        if (ops == null) ops = {};
         self.slides.push(new PresentationSlide(ops));
     };
 
@@ -116,8 +117,19 @@ var presentation = new PresentationModel({
     tags: ['slides', 'kawaii', 'work staff']
 });
 
-presentation.slides().push(new PresentationSlide({}));
-presentation.slides().push(new PresentationSlide({}));
-presentation.slides().push(new PresentationSlide({}));
+var blockParams = {
+    top: 10,
+    left: 10,
+    width: 300,
+    height: 200
+};
+
+var text1 = new TextObject({ text: 'Loren ipsum dolor sit amet', block: blockParams });
+
+presentation.addSlide({ texts: [text1] });
+
+//presentation.addSlide();
+//presentation.addSlide();
+//presentation.addSlide();
 
 ko.applyBindings(presentation);
